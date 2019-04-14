@@ -1,17 +1,19 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export const Todo = (props) => {
   const {
-    id, text, completed, onToogleTodo,
+    id, text, completed, onClick,
   } = props;
   const classes = classNames('todo-item', {
     'todo-item-completed': completed,
   });
 
   return (
-    <li key={id} className={classes} onClick={() => onToogleTodo(id)}>
+    <li key={id} className={classes} onClick={() => onClick(id)}>
       {text}
     </li>
   );
@@ -19,12 +21,12 @@ export const Todo = (props) => {
 
 Todo.defaultProps = {
   completed: false,
-  onToogleTodo: () => {},
+  onClick: () => {},
 };
 
 Todo.propTypes = {
   id: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   completed: PropTypes.bool,
-  onToogleTodo: PropTypes.func,
+  onClick: PropTypes.func,
 };

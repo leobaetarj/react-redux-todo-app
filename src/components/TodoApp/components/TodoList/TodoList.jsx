@@ -12,7 +12,7 @@ export const TodoList = (props) => {
           id={todo.id}
           text={todo.text}
           completed={todo.completed}
-          onToogleTodo={onToogleTodo}
+          onClick={onToogleTodo}
         />
       ))}
     </ul>
